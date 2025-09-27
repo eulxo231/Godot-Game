@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=27]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ null, null, null ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, null, null, null, null ],
+"loop": true,
+"name": "Run",
+"speed": 100.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.54381, 15.8584 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 27 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 103, 515 )
+scale = Vector2( 5.17188, 5.29687 )
+frames = SubResource( 1 )
+animation = "Jump"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite"]
+position = Vector2( 0.456196, 1.52588e-05 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 511, 300 )
